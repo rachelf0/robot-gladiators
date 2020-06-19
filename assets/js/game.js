@@ -44,21 +44,6 @@ var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
-// var enemyInfo = [
-//   {
-//     name: "Roborto",
-//     attack: 12
-//   },
-//   {
-//     name: "Amy Android",
-//     attack: 13
-//   },
-//   {
-//     name: "Robo Trumble",
-//     attack: 14
-//   }
-// ];
-
 var fight = function(enemyName) {
   while (playerInfo.health > 0 && enemyHealth > 0) {
     // ask user if they'd liked to fight or run
@@ -167,20 +152,18 @@ else {
 
 var shop = function() {
   var shopOptionPrompt = window.prompt(
-    "Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one: 'REFILL', 'UPGRADE', or 'LEAVE' to make a choice."
+    "Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one: 1 for REFILL, 2 for UPGRADE, or 3 for LEAVE to make a choice."
   );
   // use switch to carry out action
+  shopOptionPrompt = parseInt(shopOptionPrompt);
   switch (shopOptionPrompt) {
-  case "REFILL": //new case
-  case "refill":
+  case 1:
     playerInfo.refillHealth();
     break;
-  case "UPGRADE": //new case
-  case "upgrade":
+  case 2:
     playerInfo.upgradeAttack();
     break;
-  case "LEAVE": //new case
-  case "leave":
+  case 3:
     window.alert("Leaving the store.");
     break;
   default:
